@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f0f4f8;
+}
+
+main {
+  padding: 20px;
+}
+
+input, button, select {
+  padding: 8px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  cursor: pointer;
+  background-color: #0055aa;
+  color: white;
+}
+
+button:hover {
+  background-color: #003f7f;
+}
