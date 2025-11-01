@@ -4,25 +4,40 @@ Slot Swapper is a full-stack MERN web application designed to help users to mana
 SlotSwapper streamlines schedule management by allowing users to:
 
 1.Create and view their event or shift slots.
+
 2.Mark slots as swappable.
+
 3.Request to swap slots with others.
+
 4.Accept or reject incoming swap requests.
 
 ### Design Choices
 1. MERN Stack - Gives flexibility, rapid development and scalability
+
 2. Context API for Auth
+
 3. Clean CSS UI - To maintain control over styling and resposiveness
+
 4. RESTful API Architecture – Clear separation between frontend and backend
+
 5. Modular Codebase
+   
 ### Local Set-up Instructions
 1. Clone the repository
+   
    git clone https://github.com/Yashi027/SlotSwapper.git
+   
    cd SlotSwapper
 2. Install Dependencies
+   
    Frontend: react-router-dom
+   
    Backend: express, mongoose, dotenv, cors, morgan, bcrypt, jsonwebtoken
+   
 3. Frontend will run on: http://localhost:5173
+
    Backend will run on: http://localhost:4000
+   
 ### API EndPoints
 
 | Method | Endpoint | Description |
