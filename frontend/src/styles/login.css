@@ -1,17 +1,15 @@
-/* ===== Background Section ===== */
 .login-page {
   background: url("bg_meeting.jpg") no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
   width: 100%;
   display: flex;
-  justify-content: center;   /* horizontally center */
-  align-items: center;       /* vertically center */
+  justify-content: center;
+  align-items: center;
   position: relative;
   overflow: hidden;
 }
 
-/* Optional dark overlay */
 .login-page::before {
   content: "";
   position: absolute;
@@ -21,7 +19,6 @@
   z-index: 0;
 }
 
-/* ===== Card / Form Box ===== */
 .login-card {
   position: relative;
   z-index: 1;
@@ -43,7 +40,6 @@
   font-weight: 600;
 }
 
-/* ===== Input Styles ===== */
 .login-card input {
   width: 100%;
   padding: 12px;
@@ -59,7 +55,6 @@
   border-color: #007bff;
 }
 
-/* ===== Button ===== */
 .login-card button {
   width: 100%;
   padding: 12px;
@@ -77,7 +72,6 @@
   background-color: #0056b3;
 }
 
-/* ===== Redirect Text ===== */
 .redirect-text {
   text-align: center;
   margin-top: 1rem;

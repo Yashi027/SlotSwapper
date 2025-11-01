@@ -18,7 +18,6 @@ export default function Signup() {
         method: "POST",
         body: { name, email, password },
       });
-      // Automatically log in after signup
       login({ user: data.user, token: data.token });
       navigate("/");
     } catch (err) {

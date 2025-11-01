@@ -5,12 +5,6 @@ import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-/**
- * ================================
- *  GET /api/swap/swappable
- *  Fetch all swappable slots except current user's
- * ================================
- */
 router.get("/swappable", protect, async (req, res) => {
   try {
     const events = await Event.find({
@@ -25,13 +19,7 @@ router.get("/swappable", protect, async (req, res) => {
   }
 });
 
-/**
- * ================================
- *  POST /api/swap/request
- *  Create a new swap request
- * ================================
- */
-// ✅ Create Swap Request
+
 router.post("/request", protect, async (req, res) => {
   try {
     const { mySlotId, theirSlotId } = req.body;
@@ -69,7 +57,6 @@ router.post("/request", protect, async (req, res) => {
         .status(400)
         .json({ message: "A pending swap request already exists" });
 
-    // ✅ Create the new request
     const newSwap = await SwapRequest.create({
       requester: req.user._id,
       responder: theirSlot.owner._id,
@@ -77,13 +64,11 @@ router.post("/request", protect, async (req, res) => {
       theirSlot: theirSlot._id,
     });
 
-    // Update slots
     mySlot.status = "SWAP_PENDING";
     theirSlot.status = "SWAP_PENDING";
     await mySlot.save();
     await theirSlot.save();
 
-    // ✅ Correct way: re-fetch and populate everything
     const populatedSwap = await SwapRequest.findById(newSwap._id)
       .populate("requester", "name email")
       .populate("responder", "name email")
@@ -101,13 +86,6 @@ router.post("/request", protect, async (req, res) => {
 });
 
 
-/**
- * ================================
- *  POST /api/swap/respond/:id
- *  Accept or reject a swap request
- * ================================
- */
-// ✅ Respond to Swap Request
 router.post("/respond/:id", protect, async (req, res) => {
   try {
     const { accept } = req.body;

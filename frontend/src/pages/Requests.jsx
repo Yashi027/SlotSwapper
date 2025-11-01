@@ -8,7 +8,6 @@ export default function Requests() {
   const [incoming, setIncoming] = useState([]);
   const [outgoing, setOutgoing] = useState([]);
 
-  // Fetch all incoming and outgoing swap requests
   async function load() {
     try {
       const data = await api("/swap/requests", { token });
@@ -23,7 +22,6 @@ export default function Requests() {
     load();
   }, []);
 
-  // Accept or reject a swap request
   async function respond(id, accept) {
     try {
       await api(`/swap/respond/${id}`, {
